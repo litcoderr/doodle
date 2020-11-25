@@ -1,0 +1,22 @@
+{
+  "name": "wav_doodle",
+  "version": "0.0.1",
+  "description": "something to do with music and graphic visualization",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litcoderr/doodle.git"
+  },
+  "author": "Youngchae Chee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/litcoderr/doodle/issues"
+  },
+  "homepage": "https://github.com/litcoderr/doodle#readme",
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  }
+}
