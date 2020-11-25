@@ -4,7 +4,8 @@
   "description": "something to do with music and graphic visualization",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "repository": {
     "type": "git",

@@ -2,4 +2,6 @@ const writeMessage = (message: string) => {
 	  console.log(message);
 }
 
-writeMessage('Hello, World!');
+const start = () => {
+	writeMessage('Hello World');
+}

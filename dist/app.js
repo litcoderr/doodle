@@ -2,4 +2,6 @@
 var writeMessage = function (message) {
     console.log(message);
 };
-writeMessage('Hello, World!');
+var start = function () {
+    writeMessage('Hello World');
+};
