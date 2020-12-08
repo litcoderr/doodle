@@ -1,1 +1,0 @@
-print("Collecting Billboard Charts")

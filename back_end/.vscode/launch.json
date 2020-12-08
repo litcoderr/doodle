@@ -8,7 +8,7 @@
             "name": "Python Launch",
             "type": "python",
             "request": "launch",
-            "module": "DoodleBackend.data.collect_chart",
+            "module": "DoodleBackend.data.collect_image",
             "console": "integratedTerminal"
         }
     ]
