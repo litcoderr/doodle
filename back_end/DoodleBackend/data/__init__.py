@@ -2,8 +2,7 @@ import os
 import json
 
 # Global Level Constants
-#DATASET_ROOT = "/home/litcoderr/dataset/DoodleDataset"
-DATASET_ROOT = "/Users/litcoderr/dataset/DoodleDataset"
+DATASET_ROOT = "/home/litcoderr/dataset/DoodleDataset"
 
 # Load JSON Meta Data
 with open(os.path.join(DATASET_ROOT, "meta", "song_meta.json"), encoding="utf-8") as file:
