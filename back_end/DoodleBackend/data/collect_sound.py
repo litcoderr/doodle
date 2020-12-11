@@ -1,4 +1,5 @@
 import os
+import signal
 import youtube_dl
 from tqdm import tqdm
 from youtubesearchpython import SearchVideos
@@ -14,6 +15,8 @@ for file_name in image_files:
 
 target_length = len(filtered_idx)
     
+def handler(signum, frame):
+    raise Exception("Download Timeout")
 
 def get_url(m):
     query = "{} {}".format(m["song_name"], m["album_name"])
@@ -41,14 +44,20 @@ def download(idx, m):
         'outtmpl': os.path.join(DATASET_ROOT, "raw", "sound", "{}.%(ext)s".format(get_id_str(idx)))
     }
 
-    url = get_url(m)
-    if url != None:
-        # print("{}% [{}/{}] {}: {}".format((idx/target_length)*100, idx, target_length, m["song_name"], url))
-
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-    else:
-        print("no urls fetched")
+    result_file = os.path.join(DATASET_ROOT, "raw", "sound", "{}.wav".format(get_id_str(idx)))
+    if not os.path.exists(result_file):
+        url = get_url(m)
+        if url != None:
+            signal.signal(signal.SIGALRM, handler)
+            signal.alarm(60*5)
+            try:
+                with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                    ydl.download([url])
+            except Exception:
+                pass
+            signal.alarm(0)
+        else:
+            print("no urls fetched")
 
 
 if __name__ == "__main__":
